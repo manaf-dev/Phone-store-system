@@ -1,0 +1,26 @@
+{% extends 'store/main.html' %}
+
+{% block navbar %}
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Customers</li>
+    </ol>
+    <h6 class="font-weight-bolder mb-0">Customers</h6>
+    </nav>
+    
+        
+{% endblock navbar %}
+
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p >Are you sure you want to delete customer "{{ customer.name }} with id {{ customer.id }}?</p>
+        <button type="submit" name='delete' class="bg-gradient-success">Yes, I'm Sure!</button><br />
+        <small>*This will also remove all orders and products associated.</small><br><br>
+        <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    </form>
+
+{% endblock content %}

@@ -1,0 +1,148 @@
+{% extends 'store/main.html' %}
+
+
+{% block navbar %}
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+    </ol>
+    <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+    </nav>
+        
+{% endblock navbar %}
+
+{% block content %}
+
+    
+<div class="row mt-4">
+    <div class="col-lg-4 col-md-6 mt-4 mb-4">
+      <div class="card z-index-2 ">
+        <a href="{% url 'place_order' %}">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="charts-container" style="display: flex;">
+                <div class="chart" style="position: relative; flex: 1;">
+                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                  <div class="chart-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                    <i class="material-icons opacity-10" style="font-size: 50px; color: aliceblue;">receipt</i>  
+                    <h3 style="margin: 0; color: white;">Place Order</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h4 class="mb-0 ">Make a Sale</h4>
+          <!-- <p class="text-sm ">Last Sale Made</p> -->
+          <hr class="dark horizontal">
+          <!-- <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4 mb-4">
+      <div class="card z-index-2 ">
+        <a href="{% url 'add_product' %}">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="charts-container" style="display: flex;">
+                <div class="chart" style="position: relative; flex: 1;">
+                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                  <div class="chart-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                    <i class="material-icons opacity-10" style="font-size: 50px; color: aliceblue;">add</i>
+                    <h3 style="margin: 0; color: white;">Add Product</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h4 class="mb-0 ">Add a Product</h4>
+          <!-- <p class="text-sm ">Last Sale Made</p> -->
+          <hr class="dark horizontal">
+          <!-- <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6 mt-4 mb-4">
+      <div class="card z-index-2 ">
+        <a href="{% url 'sales' %}">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+              <div class="charts-container" style="display: flex;">
+                <div class="chart" style="position: relative; flex: 1;">
+                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                  <div class="chart-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+                    <i class="material-icons opacity-10" style="font-size: 50px; color: aliceblue;">table_view</i>
+                    <h3 style="margin: 0; color: white;">View Sales</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h4 class="mb-0 ">View Sales</h4>
+          <!-- <p class="text-sm ">Last Sale Made</p> -->
+          <hr class="dark horizontal">
+          <!-- <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+   <!-- <div class="col-lg-4 col-md-6 mt-4 mb-4">
+      <div class="card z-index-2  ">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
+            <div class="chart">
+              <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h6 class="mb-0 "> Daily Sales </h6>
+          <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
+          <hr class="dark horizontal">
+          <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm"> updated 4 min ago </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mt-4 mb-3">
+      <div class="card z-index-2 ">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+          <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+            <div class="chart">
+              <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h6 class="mb-0 ">Completed Tasks</h6>
+          <p class="text-sm ">Last Campaign Performance</p>
+          <hr class="dark horizontal">
+          <div class="d-flex ">
+            <i class="material-icons text-sm my-auto me-1">schedule</i>
+            <p class="mb-0 text-sm">just updated</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+  
+      
+
+{% endblock content %}
